@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0B0B0F;
+  color: #F5F5F7;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(ellipse at 50% 10%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+    linear-gradient(to bottom, #0B0B0F 0%, #0B0B0F 65%, #15131A 65%, #15131A 100%);
+  background-attachment: fixed;
+}
+
+/* Atmospheric effects */
+.moonlight {
+  position: fixed;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 80vh;
+  background: radial-gradient(circle, rgba(160, 180, 255, 0.05) 0%, rgba(11, 11, 15, 0) 60%);
+  z-index: -10;
+  pointer-events: none;
+}
+
+.environment-fog {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+  background: linear-gradient(to top, rgba(42, 42, 48, 0.3) 0%, rgba(21, 19, 26, 0.1) 40%, transparent 100%);
+  z-index: -5;
+  pointer-events: none;
+  filter: blur(12px);
+}
+
+.environment-fog-front {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 30vh;
+  background: linear-gradient(to top, rgba(11, 11, 15, 0.5) 0%, transparent 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Base image styling */
+.tombstone-img {
+  width: 130px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.4));
+}
+
+/* Apply color tinting using CSS filters on the image */
+.grave-tint-abandoned {
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.4)) sepia(0.8) hue-rotate(330deg) saturate(2) brightness(0.7);
+}
+
+.grave-tint-suspicious {
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.4)) sepia(0.8) hue-rotate(10deg) saturate(2) brightness(0.8);
+}
+
+.grave-tint-inactive {
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.4)) sepia(0.7) hue-rotate(40deg) saturate(1.5) brightness(0.9);
+}
+
+.grave-tint-healthy {
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.4)) sepia(0.6) hue-rotate(90deg) saturate(1.5) brightness(0.9);
+}
+
+/* Hover effects */
+.group:hover .tombstone-img {
+  filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)) brightness(1.1);
+}
+
+.group:hover .grave-tint-abandoned { filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)) sepia(0.8) hue-rotate(330deg) saturate(2) brightness(0.85); }
+.group:hover .grave-tint-suspicious { filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)) sepia(0.8) hue-rotate(10deg) saturate(2) brightness(0.95); }
+.group:hover .grave-tint-inactive { filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)) sepia(0.7) hue-rotate(40deg) saturate(1.5) brightness(1.05); }
+.group:hover .grave-tint-healthy { filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6)) sepia(0.6) hue-rotate(90deg) saturate(1.5) brightness(1.05); }
